@@ -1,8 +1,8 @@
 type RootStackParamList = {
     GettingStarted: undefined;
     Ask: undefined;
-    Register: undefined;
     Login: undefined;
+    Register: undefined;
 };
 
 export type { RootStackParamList };

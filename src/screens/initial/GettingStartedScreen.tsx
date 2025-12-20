@@ -1,4 +1,5 @@
-import { View, Text, ScrollView, Image, Platform, StatusBar, TouchableOpacity } from 'react-native'
+import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import FontAwesome6 from '@react-native-vector-icons/fontawesome6'
 import LinearGradient from 'react-native-linear-gradient'
 import React from 'react'
@@ -6,25 +7,25 @@ import tw from 'twrnc'
 import COLORS from '../../constants/color'
 import { Fonts } from '../../constants/font'
 import useGlobalStore from '../../stores/globalStore'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { CustomButton } from '../../components'
+import { RootStackParamList } from '../../types/route'
+import { Dimension, DimensionInsets } from '../../utils/dimension'
 
 type Props = {
+    navigation: NativeStackNavigationProp<RootStackParamList, 'GettingStarted'>;
     borderRadiusProp?: number;
 }
 
-const GettingStarted = (props: Props) => {
+const GettingStartedScreen = (props: Props) => {
     const { borderRadiusProp = 35 } = props;
 
-    const statusBarHeight = Platform.OS === 'android' ? StatusBar.currentHeight : 55;
-    const insets = useSafeAreaInsets();
     const { translate } = useGlobalStore();
 
     return (
         <View style={tw`flex-1`}>
             <ScrollView
                 bounces={true}
-                style={[tw``, { paddingTop: statusBarHeight, backgroundColor: COLORS.background }]}
+                style={[tw``, { paddingTop: Dimension.statusBarHeight, backgroundColor: COLORS.background }]}
             >
                 <View style={tw`flex-row items-center px-4`}>
                     <Image
@@ -68,7 +69,12 @@ const GettingStarted = (props: Props) => {
                     </LinearGradient>
                 </TouchableOpacity>
             </ScrollView>
-            <View style={[tw`w-full items-center pt-6 shadow-sm`, { backgroundColor: COLORS.white, paddingBottom: insets.bottom }]}>
+            <View
+                style={[
+                    tw`w-full items-center pt-6 shadow-sm`,
+                    { backgroundColor: COLORS.white, paddingBottom: DimensionInsets().insets.bottom },
+                ]}
+            >
                 <CustomButton
                     title={translate('registerWithEmail')}
                     onPress={() => {}}
@@ -76,7 +82,7 @@ const GettingStarted = (props: Props) => {
                 <View style={tw`h-3`} />
                 <CustomButton
                     title={translate('signYourAccount')}
-                    onPress={() => {}}
+                    onPress={() => props.navigation.navigate('Login')}
                     textColor={COLORS.navy}
                     backgroundColor={COLORS.white}
                     borderColor={COLORS.navy}
@@ -86,4 +92,4 @@ const GettingStarted = (props: Props) => {
     )
 }
 
-export default GettingStarted
+export default GettingStartedScreen

@@ -3,9 +3,9 @@ import { Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { AskScreen, GettingStarted } from './screens';
-// import { CustomHeader } from './components';
+import { AskScreen, GettingStartedScreen, LoginScreen, RegisterScreen } from './screens';
 import { CustomAlert } from './components';
+// import { CustomHeader } from './components';
 
 const Stack = createNativeStackNavigator();
 
@@ -51,8 +51,10 @@ const AppNavigator: React.FC = () => {
             animationDuration: Platform.OS === 'ios' ? undefined : 100,
           }}
         >
-          <Stack.Screen name="GettingStarted" component={GettingStarted} />
+          <Stack.Screen name="GettingStarted" component={GettingStartedScreen} />
           <Stack.Screen name="Ask" component={AskScreen} />
+          <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="Register" component={RegisterScreen} />
         </Stack.Navigator>
       </NavigationContainer>
       <CustomAlert />
