@@ -16,6 +16,12 @@ type Props = {
     secureTextEntry?: boolean;
     multiline?: boolean;
     borderRadius?: number;
+    indicatorText?: string;
+    indicatorIcon?: React.ReactNode;
+    suffixNode?: React.ReactNode;
+    borderColor?: string;
+    showIndicator?: boolean;
+    justifyContent?: 'flex-start' | 'center' | 'flex-end' | 'space-between' | 'space-around';
     keyboardType?: 'default' | 'email-address' | 'numeric' | 'phone-pad';
 }
 
@@ -26,8 +32,9 @@ const CustomTextInput = (props: Props) => {
                 style={[
                     tw`flex-row w-full items-center border px-4`,
                     {
-                        borderColor: props.errorText ? COLORS.error : COLORS.navy,
+                        borderColor: props.errorText ? COLORS.error : props.borderColor ?? COLORS.navy,
                         borderRadius: props.borderRadius ?? 5,
+                        backgroundColor: COLORS.white,
                     },
                 ]}
             >
@@ -54,9 +61,25 @@ const CustomTextInput = (props: Props) => {
                 {props.suffixIcon}
             </View>
             {props.errorText && (
-                <Text style={[tw`self-start text-[13px] pt-1`, { color: COLORS.error, fontFamily: Fonts.regular }]}>
-                    {props.errorText}
-                </Text>
+                <View style={[tw`flex-row`, { justifyContent: props.justifyContent ?? 'flex-start' }]}>
+                    <Text style={[tw`self-start text-[13px] pt-1`, { color: COLORS.error, fontFamily: Fonts.regular }]}>
+                        {props.errorText}
+                    </Text>
+                    {props.suffixNode}
+                </View>
+            )}
+            {!props.errorText && props.indicatorText && (
+                <View style={[tw`flex-row pt-2`, { justifyContent: props.justifyContent ?? 'flex-start' }]}>
+                    {props.showIndicator && (
+                        <View style={tw`flex-row items-center`}>
+                            {props.indicatorIcon}
+                            <Text style={[tw`self-start text-[13px]`, { color: COLORS.green, fontFamily: Fonts.regular }]}>
+                                {props.indicatorText}
+                            </Text>
+                        </View>
+                    )}
+                    {props.suffixNode}
+                </View>
             )}
         </View>
     )

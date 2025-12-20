@@ -77,7 +77,7 @@ const GettingStartedScreen = (props: Props) => {
             >
                 <CustomButton
                     title={translate('registerWithEmail')}
-                    onPress={() => {}}
+                    onPress={() => props.navigation.navigate('Register')}
                 />
                 <View style={tw`h-3`} />
                 <CustomButton

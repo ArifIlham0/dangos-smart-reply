@@ -1,4 +1,6 @@
+import EmailIcon from "./EmailIcon";
 import PadlockIcon from "./PadlockIcon";
+import UserIcon from "./UserIcon";
 import UserIdIcon from "./UserIdIcon";
 
-export { PadlockIcon, UserIdIcon };
+export { EmailIcon, PadlockIcon, UserIcon, UserIdIcon };

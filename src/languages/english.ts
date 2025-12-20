@@ -15,6 +15,12 @@ const en: Translations['en'] = {
   login: 'Login',
   dontHaveAccount: "Don't have an account?",
   createAccount: "Create account",
+  createYourAccount: "Create your account",
+  fillFieldsBelow: "Fill in the fields below to register an account",
+  usernameAtLeast6: 'Username must be at least 6 characters.',
+  register: 'Register',
+  alreadyHaveAccount: 'Already have an account?',
+  createYourPassword: 'Create your password',
 };
 
 export default en;

@@ -15,6 +15,12 @@ const id: Translations['id'] = {
   login: 'Masuk',
   dontHaveAccount: "Tidak punya akun?",
   createAccount: "Buat akun",
+  createYourAccount: "Buat akun Anda",
+  fillFieldsBelow: "Isi field di bawah ini untuk mendaftarkan akun.",
+  usernameAtLeast6: 'Username minimal 6 karakter.',
+  register: 'Daftar',
+  alreadyHaveAccount: 'Sudah punya akun?',
+  createYourPassword: 'Buat kata sandi Anda',
 };
 
 export default id;
