@@ -10,6 +10,7 @@ const COLORS = {
   orange: '#F28C6E',
   textNavy: '#383862',
   text: '#7E7E9E',
+  textHeader: '#555579',
   error: '#F06868',
   success: '#97F7DF',
   overlay: 'rgba(0, 0, 0, 0.5)',

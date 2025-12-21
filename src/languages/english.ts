@@ -21,6 +21,9 @@ const en: Translations['en'] = {
   register: 'Register',
   alreadyHaveAccount: 'Already have an account?',
   createYourPassword: 'Create your password',
+  hiBosImHere: "Hi, Boss!\nI'm Here to Help!",
+  askAnythingRelated: "Ask anything related to your project!",
+  askAnything: "Ask anything",
 };
 
 export default en;

@@ -1,18 +1,20 @@
 import { View, Text, ScrollView, TouchableOpacity, KeyboardAvoidingView } from 'react-native'
 import React, { useState } from 'react'
 import tw from 'twrnc'
-import { RootStackParamList } from '../../types/route';
+import { RouteProp } from '@react-navigation/native';
+import FontAwesome6 from '@react-native-vector-icons/fontawesome6';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import COLORS from '../../constants/color';
-import useGlobalStore from '../../stores/globalStore';
 import { Fonts } from '../../constants/font';
+import { Validation } from '../../utils/validation';
+import useGlobalStore from '../../stores/globalStore';
+import { RootStackParamList } from '../../types/route';
 import { CustomButton, CustomTextInput } from '../../components';
 import { EmailIcon, PadlockIcon, UserIcon } from '../../../assets/icons';
-import { Validation } from '../../utils/validation';
-import FontAwesome6 from '@react-native-vector-icons/fontawesome6';
 
 type Props = {
     navigation: NativeStackNavigationProp<RootStackParamList, 'Register'>;
+    route: RouteProp<RootStackParamList, "Register">
 }
 
 const RegisterScreen = (props: Props) => {
@@ -48,19 +50,27 @@ const RegisterScreen = (props: Props) => {
         passwordErrorText = translate("passwordAtLeast6");
     }
 
+    const handleNavigateToLogin = () => {
+        if (props.route.params?.isFromGettingStarted) {
+            props.navigation.navigate("Login");
+        } else {
+            props.navigation.goBack()
+        }
+    }
+
     const handleRegister = async () => {
 
     }
 
+
     return (
         <KeyboardAvoidingView
             behavior='padding'
-            style={tw`flex-1 pt-25`}
+            style={[tw`flex-1 pt-25`, { backgroundColor: COLORS.background }]}
         >
             <ScrollView
                 bounces={true}
                 keyboardShouldPersistTaps="handled"
-                contentContainerStyle={[tw``, { backgroundColor: COLORS.background }]}
             >
                 <View style={tw`items-center px-5`}>
                     <Text style={[tw`text-[21px] self-start`, { fontFamily: Fonts.bold, color: COLORS.textNavy }]}>
@@ -151,7 +161,7 @@ const RegisterScreen = (props: Props) => {
                     />
                     <View style={tw`h-6`}/>
                     <TouchableOpacity
-                        onPress={() => props.navigation.goBack()}
+                        onPress={handleNavigateToLogin}
                         style={tw`flex-row`}
                     >
                         <Text style={[tw`text-[14px]`, { fontFamily: Fonts.regular, color: COLORS.text }]}>

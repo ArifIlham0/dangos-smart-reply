@@ -3,18 +3,13 @@ import { Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { AskScreen, GettingStartedScreen, LoginScreen, RegisterScreen } from './screens';
+import { GettingStartedScreen, LoginScreen, RegisterScreen } from './screens';
 import { CustomAlert } from './components';
-// import { CustomHeader } from './components';
+import AppDrawer from './AppDrawer';
 
 const Stack = createNativeStackNavigator();
 
-// const renderHeader = (props: any) => {
-//   const title = props.route.name.replace(/([A-Z])/g, ' $1').trim();
-//   return <CustomHeader title={title} />;
-// };
-
-const AppNavigator: React.FC = () => {
+const AppNavigator = () => {
   const [initialRoute, setInitialRoute] = useState<string>('GettingStarted');
   const [isReady, setIsReady] = useState(false);
 
@@ -52,9 +47,12 @@ const AppNavigator: React.FC = () => {
           }}
         >
           <Stack.Screen name="GettingStarted" component={GettingStartedScreen} />
-          <Stack.Screen name="Ask" component={AskScreen} />
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="Register" component={RegisterScreen} />
+          <Stack.Screen
+            name="MainDrawer"
+            component={AppDrawer}
+          />
         </Stack.Navigator>
       </NavigationContainer>
       <CustomAlert />

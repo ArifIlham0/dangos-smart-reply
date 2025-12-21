@@ -14,7 +14,9 @@ type Props = {
     borderRadius?: number;
     fontSize?: number;
     paddingVertical?: number;
+    paddingHorizontal?: number;
     marginHorizontal?: number;
+    textStyle?: object;
     alignSelf?: 'auto' | 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
 }
 
@@ -30,6 +32,7 @@ const CustomButton = (props: Props) => {
                     borderWidth: borderWidth,
                     borderRadius: borderRadius,
                     paddingVertical: paddingVertical,
+                    paddingHorizontal: props.paddingHorizontal,
                     marginHorizontal: marginHorizontal,
                     alignSelf: props.alignSelf ?? 'stretch',
                     borderColor: props.borderColor ?? "transparent",
@@ -37,7 +40,12 @@ const CustomButton = (props: Props) => {
                 },
             ]}
         >
-            <Text style={{ color: props.textColor ?? COLORS.lightPurple, fontFamily: Fonts.bold, fontSize: fontSize }}>
+            <Text
+                style={[
+                    { color: props.textColor ?? COLORS.lightPurple, fontFamily: Fonts.bold, fontSize: fontSize },
+                    props.textStyle,
+                ]}
+            >
                 {props.title}
             </Text>
         </TouchableOpacity>

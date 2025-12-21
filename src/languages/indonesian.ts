@@ -21,6 +21,9 @@ const id: Translations['id'] = {
   register: 'Daftar',
   alreadyHaveAccount: 'Sudah punya akun?',
   createYourPassword: 'Buat kata sandi Anda',
+  hiBosImHere: "Halo, Bos!\nSaya Siap Membantu!",
+  askAnythingRelated: "Tanyakan apa saja terkait project anda!",
+  askAnything: "Tanyakan apa saja",
 };
 
 export default id;

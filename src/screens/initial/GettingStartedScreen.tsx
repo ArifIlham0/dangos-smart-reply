@@ -46,7 +46,7 @@ const GettingStartedScreen = (props: Props) => {
                     {translate('pressButtonStart')}
                 </Text>
                 <View style={tw`h-20`}/>
-                <TouchableOpacity onPress={() => {}}>
+                <TouchableOpacity onPress={() => props.navigation.navigate('MainDrawer')}>
                     <LinearGradient
                         colors={[COLORS.navy, '#49A7D5', '#524EB9']}
                         start={{ x: 0, y: 0 }}
@@ -77,7 +77,7 @@ const GettingStartedScreen = (props: Props) => {
             >
                 <CustomButton
                     title={translate('registerWithEmail')}
-                    onPress={() => props.navigation.navigate('Register')}
+                    onPress={() => props.navigation.navigate('Register', { isFromGettingStarted: true })}
                 />
                 <View style={tw`h-3`} />
                 <CustomButton

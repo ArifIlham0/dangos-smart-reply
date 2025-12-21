@@ -7,8 +7,8 @@ import { Fonts } from '../constants/font';
 type Props = {
     value: string;
     onChangeText: (value: string) => void;
-    setTouched: (value: boolean) => void;
-    touched: boolean;
+    setTouched?: (value: boolean) => void;
+    touched?: boolean;
     placeholder: string;
     prefixIcon?: React.ReactNode;
     suffixIcon?: React.ReactNode;
@@ -21,6 +21,7 @@ type Props = {
     suffixNode?: React.ReactNode;
     borderColor?: string;
     showIndicator?: boolean;
+    width?: string;
     justifyContent?: 'flex-start' | 'center' | 'flex-end' | 'space-between' | 'space-around';
     keyboardType?: 'default' | 'email-address' | 'numeric' | 'phone-pad';
 }
@@ -30,11 +31,12 @@ const CustomTextInput = (props: Props) => {
         <View>
             <View
                 style={[
-                    tw`flex-row w-full items-center border px-4`,
+                    tw`flex-row items-center border px-4`,
                     {
                         borderColor: props.errorText ? COLORS.error : props.borderColor ?? COLORS.navy,
                         borderRadius: props.borderRadius ?? 5,
                         backgroundColor: COLORS.white,
+                        width: props.width ?? "100%",
                     },
                 ]}
             >
@@ -50,7 +52,7 @@ const CustomTextInput = (props: Props) => {
                     secureTextEntry={props.secureTextEntry}
                     onChangeText={value => {
                         props.onChangeText(value);
-                        if (!props.touched) props.setTouched(true);
+                        if (!props.touched) props.setTouched?.(true);
                     }}
                     style={[
                         tw`flex-1 text-[14px] py-4`,

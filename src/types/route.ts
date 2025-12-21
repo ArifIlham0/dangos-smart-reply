@@ -1,8 +1,9 @@
 type RootStackParamList = {
     GettingStarted: undefined;
     Ask: undefined;
-    Login: undefined;
-    Register: undefined;
+    Login: { isFromAsk?: boolean } | undefined;
+    Register: { isFromGettingStarted?: boolean } | undefined;
+    MainDrawer: undefined;
 };
 
 export type { RootStackParamList };
