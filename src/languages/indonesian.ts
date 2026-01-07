@@ -24,6 +24,7 @@ const id: Translations['id'] = {
   hiBosImHere: "Halo, Bos!\nSaya Siap Membantu!",
   askAnythingRelated: "Tanyakan apa saja terkait project anda!",
   askAnything: "Tanyakan apa saja",
+  ask: "Tanya",
 };
 
 export default id;

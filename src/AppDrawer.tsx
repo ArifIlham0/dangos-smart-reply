@@ -1,6 +1,6 @@
 import React from 'react'
 import { createDrawerNavigator } from '@react-navigation/drawer'
-import { RenderHeader } from './components';
+import { CustomDrawerContent, RenderHeader } from './components';
 import { AskScreen } from './screens';
 
 const Drawer = createDrawerNavigator();
@@ -9,9 +9,15 @@ const renderHeader = (props: any) => {
     return <RenderHeader {...props} />
 }
 
+const renderDrawerContent = (props: any) => {
+    return <CustomDrawerContent {...props} />
+}
+
 const AppDrawer = () => {
     return (
-        <Drawer.Navigator>
+        <Drawer.Navigator
+            drawerContent={renderDrawerContent}
+        >
             <Drawer.Screen
                 name='Ask'
                 component={AskScreen}

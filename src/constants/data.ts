@@ -1,3 +1,5 @@
+import { DrawerItem } from "../types/drawer";
+
 const locales = [
   {
     tag: 'en',
@@ -11,4 +13,13 @@ const locales = [
   },
 ];
 
-export { locales };
+const drawerItems: DrawerItem[] = [
+  {
+    id: 1,
+    prefix: "BubbleChatIcon",
+    title: "ask",
+    route: 'Ask',
+  },
+];
+
+export { locales, drawerItems };

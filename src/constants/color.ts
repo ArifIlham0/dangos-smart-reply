@@ -14,6 +14,7 @@ const COLORS = {
   error: '#F06868',
   success: '#97F7DF',
   overlay: 'rgba(0, 0, 0, 0.5)',
+  transparent: 'transparent',
 };
 
 export default COLORS;

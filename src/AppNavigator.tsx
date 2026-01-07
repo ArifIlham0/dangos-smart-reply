@@ -10,7 +10,7 @@ import AppDrawer from './AppDrawer';
 const Stack = createNativeStackNavigator();
 
 const AppNavigator = () => {
-  const [initialRoute, setInitialRoute] = useState<string>('GettingStarted');
+  const [initialRoute, setInitialRoute] = useState<string>('MainDrawer');
   const [isReady, setIsReady] = useState(false);
 
   const checkUserSession = useCallback(async () => {

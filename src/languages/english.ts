@@ -24,6 +24,7 @@ const en: Translations['en'] = {
   hiBosImHere: "Hi, Boss!\nI'm Here to Help!",
   askAnythingRelated: "Ask anything related to your project!",
   askAnything: "Ask anything",
+  ask: "Ask",
 };
 
 export default en;
